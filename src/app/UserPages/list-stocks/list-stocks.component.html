@@ -1,0 +1,112 @@
+<div class="section-one"><div class="Header">
+    <div class="personCard">
+        <div>
+            <img id="avatar" src="assets/images/c5bfc8eb-1109-43bd-b055-6f8bcddd595d.avif" alt="">
+            <div>
+                <span>Mark zuckerberg</span>
+                <span class="hilghted"><span class="hilghltedLabel">Balance </span> {{130000| currency:'USD':'symbol-narrow'}}</span>
+            </div>   
+        </div>
+    </div>
+    <div class="orderIcon">
+        <a routerLink="/orders-list">
+            <div class="orderImag">
+                <img  src="assets/images/shopping-bag_1008010.png" alt="">
+            </div>
+            <span>
+                My Orders
+            </span>
+        </a>
+    </div>
+</div>
+
+<div class="container vertical">
+    <div class="options vertical" >
+        <label id="legendTitle">Stock Changes: Microsoft vs Google </label>
+    </div>
+
+    <igx-financial-chart height="400px"
+    [dataSource]="stocksPricesList"
+    chartType="line"
+    thickness=2
+    yAxisMode="PercentChange"
+    yAxisTitle="Percent Changed"
+    zoomSliderType="None"
+    toolbarType="None"
+    dataToolTipValueTextColor="rgba(0, 173, 10, 1)"
+    dataToolTipValueTextStyle="normal bold 14px Verdana"
+    dataToolTipValueFormatMode="Currency"
+    isCategoryHighlightingEnabled="true"
+    highlightingMode="FadeOthersSpecific"
+    highlightingBehavior="NearestItemsAndSeries">
+    </igx-financial-chart>
+</div>
+
+</div>
+
+
+
+<div class="stockContainer">
+    <span class="title">Stocks</span>
+    <table>
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>Stock Name</td>
+                <td>Price</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>           
+        <tbody>
+            <tr >
+                <td colspan="4x">
+                    <hr class="h_line">
+                </td>
+            </tr>
+            <tr *ngFor="let stock of stocksList">
+                <td *ngFor="let item of stock | keyvalue">
+                    <span *ngIf="item.key === 'price'; else otherValues">
+                        {{item.value | currency:'USD':'symbol-narrow'}}
+                    </span>
+                    <ng-template #otherValues>
+                        {{item.value}}
+                    </ng-template>
+                </td>
+                <td>
+                    <button class="buyBtn" (click)="buyStock(stock)" >Buy</button>
+                </td>
+                <td class="buyStock" id="stock{{stock.id}}">
+                    <label id="legendTitle">Order {{stock.name}} stock</label>
+                    <div>
+                        <span class="label">
+                            Quantity:
+                        </span>
+                        <input type="number"  #quantity>
+                    </div>
+                    <div>
+                        <span class="label">
+                            Price:
+                        </span>
+                        <input type="number" readonly value="{{stock.price}}">
+                    </div>
+                    <div>
+                        <span class="label">
+                            Total:
+                        </span>
+                        <input type="number" id="total{{stock.id}}" readonly value="0" #totalPrice>
+                    </div>
+                    <button class="calc" (click)="calcTotalPrice(quantity.value,stock)">calculate</button>
+                    <div class="submit">
+                        <span>Please check stock price befor order</span>
+                        <button [disabled]="+totalPrice.value>0?false:true" (click)="submitOrder(stock)">Place Order</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="successMsg">
+    Order has been requested and pending on approve
+</div>

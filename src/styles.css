@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    background: url('assets/images/abstract-boho-blurred-background_17005-1853.avif');
+    
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    /* background-color:  #000000; */
+    /* filter: blur(10px); */
+    /* z-index: -1; */
+}
+@font-face {
+    font-family: 'MyFont';
+    src: url('assets/fonts/RobotoSlab-Regular.ttf');
+  }

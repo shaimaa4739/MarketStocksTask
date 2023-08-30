@@ -1,0 +1,166 @@
+
+.container{
+    position: relative;
+    width: 1300px;
+    margin: 10px 100px;
+    max-width: 90%;
+    padding: 50px;
+    border-radius: 20px;
+    background-color: #000710;
+    font-family: 'MyFont';
+    box-shadow: 0px 5px 10px 0px #000710;
+    /* border: 1px solid#aaaaaa; */
+  }
+  .title{
+      color: #ffffff !important;
+      font-size: 2em  ;
+      margin-bottom: 25px;
+  }
+  .title span{
+    color: #aaaaaa;
+    font-size: 16px;
+  }
+  .container table .h_line{
+      margin: 20px auto;
+      border: 2px solid rgba(227, 227, 227, 0.762);
+      box-shadow: 0px 1px 50px 0px #ffffff;
+      width: 100%;
+      border-radius: 20px;
+  }
+  table{
+      margin-top: 40px;
+      color: #ffffff;
+      width: 100%;
+  }
+  table thead td {
+      color: #aaaaaa !important;
+      text-align: center;
+  }
+  table tr td{
+      padding: 10px;
+      color: #ffffff;
+      text-align: center;
+  }
+  input{
+      border: 0px;
+      margin: 5px;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .buyStock{
+    display: none;
+}
+.showBuyStock{
+    display: block;
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    background-color: white;
+    border-radius: 25px;
+    padding:  60px 15px 15px 15px;
+    box-shadow: 0px 1px 10px 0px #e6e6e6;
+    width: 25%;
+}
+.showBuyStock div{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.showBuyStock span{
+    color: #aaaaaa;
+    font-family: 'MyFont';
+}
+.showBuyStock input{
+    width: 50%;
+    padding: 15px;
+    border-radius: 25px;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 20px 0px #e4e4e4;
+    font-size: 1em;
+    border: 0px;
+}
+#legendTitle{
+    color: #aaaaaa;
+    font-family: 'MyFont';
+}
+
+
+.calc{
+    background-color: #ffffff;
+    color: rgb(133, 179, 142);
+    font-family: 'MyFont';
+    border: 0px;
+
+}
+
+.submit{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.submit button{
+    border: 0px;
+    background-color: rgb(133, 179, 142);
+    color: white;
+    width: 25%;
+    height: 25px;
+    padding: 5px;
+    border-radius: 25px;
+}
+
+.submit button:hover{
+    background-color: white;
+    color: rgb(133, 179, 142);
+    box-shadow: 0px 1px 10px 0px rgb(133, 179, 142);
+    border: 1px solid rgb(133, 179, 142);
+
+}
+
+.buyBtn{
+    border: 0px;
+    background-color: rgb(133, 179, 142);
+    color: white;
+    width: 50%;
+    padding: 5px;
+    border-radius: 25px;
+}
+.buyBtn:hover{
+    background-color: #ffffff;
+    color: rgb(133, 179, 142);
+    box-shadow: 0px 1px 10px 0px rgb(133, 179, 142);
+    border: 1px solid rgb(133, 179, 142);
+}
+
+.successMsg{
+    display: none;
+}
+
+.showMsg{
+    display: block;
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    border: 0px;
+    padding: 20px;
+    background-color: rgb(133, 179, 142);
+    color: #ffffff;
+    font-family: 'MyFont';
+    box-shadow: 0px 1px 10px 0px rgb(133, 179, 142);
+}
+.closeIcon{
+    width:5%;
+}
+.closeIcon img{
+    margin-left: 650px;
+}
+.hideOrderform{
+    display: none;
+}
+
+  

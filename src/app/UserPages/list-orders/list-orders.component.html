@@ -1,0 +1,73 @@
+<app-back-button></app-back-button>
+<div class="container">
+    <span class="title">
+        Your Orders, 
+        <span>Mark zuckerberg</span> 
+    </span>
+    <table>
+        <thead>
+            <tr>
+                <td>Stock Id</td>
+                <td>Stock Name</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Total Price</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>           
+        <tbody>
+            <tr >
+                <td colspan="6x">
+                    <hr class="h_line">
+                </td>
+            </tr>
+            <tr *ngFor="let order of listAllOrders">
+                <td *ngFor="let item of getkey()">
+                    <span *ngIf="item === 'price' || item === 'totalPrice' ; else otherValues">
+                        {{order[item]  | currency:'USD':'symbol-narrow'}}
+                    </span>
+                    <ng-template #otherValues>
+                        {{order[item] }}
+                    </ng-template> 
+                </td>
+                <td>
+                    <button class="buyBtn" (click)="buyStock(order)" > +New Order</button>
+                </td>
+                <td class="buyStock" id="order{{order.stockId}}">
+                    <div class="closeIcon" (click)="hideOrderform(order)">
+                        <img src="assets/images/106830.png" alt="">
+                    </div>
+                    <label id="legendTitle">Reorder stock {{order.stockName}}</label>
+                    <div>
+                        <span class="label">
+                            Quantity:
+                        </span>
+                        <input type="number"  #quantity>
+                    </div>
+                    <div>
+                        <span class="label">
+                            Price:
+                        </span>
+                        <input type="number" readonly value="{{order.price}}">
+                    </div>
+                    <div>
+                        <span class="label">
+                            Total:
+                        </span>
+                        <input type="number" id="total{{order.stockId}}" readonly value="0" #totalPrice>
+                    </div>
+                    <button class="calc" (click)="calcTotalPrice(quantity.value,order)">calculate</button>
+                    <div class="submit">
+                        <span>Please check stock price befor order</span>
+                        <button [disabled]="+totalPrice.value>0?false:true" (click)="submitOrder(order)">Reorder</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="successMsg">
+    Order has been requested
+</div>
